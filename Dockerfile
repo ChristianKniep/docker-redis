@@ -2,9 +2,8 @@
 FROM qnib/terminal
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
-RUN yum install -y redis
+RUN yum install -y redis python-pip
 ADD etc/supervisord.d/redis.ini /etc/supervisord.d/
-RUN yum install -y python-pip
 RUN pip install redis
 ADD etc/consul.d/redis.json /etc/consul.d/
 ADD etc/redis.conf /etc/
