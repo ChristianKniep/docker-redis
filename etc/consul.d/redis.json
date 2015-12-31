@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "name": "redis",
+      "tags": [ ],
+      "port": 6379,
+      "checks": [
+        {
+          "script": "redis-cli INFO Server",
+          "interval": "5s"
+        }, {
+          "script": "nmap 127.0.0.1 -PN -p 6379 | grep open",
+          "interval": "5s"
+        }
+      ]
+    }
+  ]
+}
